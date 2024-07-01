@@ -1,97 +1,153 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  /* display: flex; */
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 8fr;
-    height: 100%;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  height: 100%;
+  width: 100%;
 }
 
 .sidebar {
-    background-color: #e0e0e0;
-    padding: 10px;
-    display: grid;
-    grid-template-rows: repeat(4, auto);
-    gap: 10px;
-    align-items: center;
+  background-color: #e0e0e0;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  gap: 10px;
+  align-items: center;
 }
 
 .main-content {
-    display: grid;
-    grid-template-rows: auto auto fr 2fr;
-    background-color: #f8f8f8;
-    overflow: auto;
+  display: grid;
+  grid-template-rows: auto auto fr 2fr;
+  background-color: #f8f8f8;
+  overflow: auto;
 }
 
 .header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #dddddd;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
 }
 
 .dashboard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 20px;
 }
 
 .dashboard-item {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .lower-section {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    gap: 10px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
 }
 
 .sales {
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    gap: 10px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sales-item {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .moonstone {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .moonstone-header {
-    font-weight: bold;
-    border-bottom: 1px solid #dddddd;
-    padding-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 10px;
 }
 
 .moonstone-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #dddddd;
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .lower-section {
+    grid-template-columns: 1fr;
+  }
+}
+/* TRANSITIONS */
+.dashboard-item:hover {
+  background-color: aquamarine;
+  transform: translateX(5px);
+  transition: background-color 450ms ease-in-out, transform 250ms ease-in-out;
+}
+/* ANIMATIONS */
+#ball {
+  width: 50px;
+  height: 50px;
+  background: cyan;
+  position: absolute;
+
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  animation-name: bounce;
+  animation-duration: 5s;
+  /* animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+  animation-iteration-count: infinite;
+}
+@keyframes bounce {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(50px, -50px);
+  }
+  50% {
+    transform: translate(100px, 0px);
+  }
+  75% {
+    transform: translate(50px, 50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
